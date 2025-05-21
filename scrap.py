@@ -53,4 +53,11 @@ async def scrape_season(season):
 
 for season in SEASONS:
   await scrape_season(season)
+standings_files = os.listdir(STANDINGS_DIR)
 
+standings_file = standings_files[0]
+with open(standings_file, 'r') as f:
+    html = f.read()
+
+soup = BeautifulSoup(html)
+links = soup.find_all('a')
