@@ -61,3 +61,4 @@ with open(standings_file, 'r') as f:
 
 soup = BeautifulSoup(html)
 links = soup.find_all('a')
+d
