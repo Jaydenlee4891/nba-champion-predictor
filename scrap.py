@@ -53,11 +53,25 @@ async def scrape_season(season):
 
 for season in SEASONS:
   await scrape_season(season)
-standings_files = os.listdir(STANDINGS_DIR)
+standing_files = os.listdir(STANDINGS_DIR)
 
-standings_file = standings_files[0]
-with open(standings_file, 'r') as f:
+async def scrape_game(standings_file):
+  with open(standings_file, 'r') as f:
     html = f.read()
 
-soup = BeautifulSoup(html)
-links = soup.find_all('a')
+  soup=BeautifulSoup(html)
+  links = soup.find_all("a")
+  href = [l.get("href" for l in links)]
+  box_scores = [l for l in hrefs if l and "boxscore" in l and ".html" in l]
+  box_scores = [f"https://www.basketball-reference.com{l}" for l in box_scores]
+
+  for url in box_scores:
+    save_path = os.path.join(SCORES_DIR, url.split("/")[-1])
+    if os.path.exists(save_path):
+      continue
+
+    html = await get_html(url, "#content")
+    if not html:
+      continue
+    with open(save_path, "w+") as f:
+      f.write(html)
