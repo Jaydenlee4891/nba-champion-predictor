@@ -75,3 +75,11 @@ async def scrape_game(standings_file):
       continue
     with open(save_path, "w+") as f:
       f.write(html)
+
+#clean any unwanted data that may be caused
+standings_files = [s for s in standings_files if ".html" in s] 
+
+for f in standings_files:
+  filepath = os.path.join(STANDINGS_DIR, f)
+
+  await scrape_game(filepath)
