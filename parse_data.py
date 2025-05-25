@@ -29,3 +29,11 @@ def read_stats(soup, team, stat):
   df = pd.read_html(str(soup), attrs={"id":f"box-{team}-game-{stat}"}, index_col=0)[0]
   df = df.apply(pd.to_numeric, errors="coerce")
   return df
+
+base_cols = None
+box_score = box_scores[0]
+
+for box_score in box_scores:
+soup = parse_html(box_score)
+line_score = read_line_score(soup)
+teams = list(line_score["team"])
