@@ -24,3 +24,8 @@ def read_line_score(soup):
 
   line_score = line_score[["team", "total"]]
   return line_score
+
+def read_stats(soup, team, stat):
+  df = pd.read_html(str(soup), attrs={"id":f"box-{team}-game-{stat}"}, index_col=0)[0]
+  df = df.apply(pd.to_numeric, errors="coerce")
+  return df
