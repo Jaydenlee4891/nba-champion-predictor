@@ -15,3 +15,12 @@ def parse_html(box_score):
   [s.decompose() for s in soup.select("tr.thead")]
   return soup
 
+def read_line_score(soup):
+  line_score = pd.read_html(str(soup), attrs={"id":"line_score"})[0]
+  cols = list(line_score.columns)
+  cols[0] = "team"
+  cols[-1] = "total"
+  line_score.columns = cols
+
+  line_score = line_score[["team", "total"]]
+  return line_score
