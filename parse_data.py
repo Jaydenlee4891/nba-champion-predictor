@@ -37,3 +37,4 @@ for box_score in box_scores:
 soup = parse_html(box_score)
 line_score = read_line_score(soup)
 teams = list(line_score["team"])
+
