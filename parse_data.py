@@ -37,3 +37,25 @@ for box_score in box_scores:
 soup = parse_html(box_score)
 line_score = read_line_score(soup)
 teams = list(line_score["team"])
+
+summaries = []
+for team in teams:
+  basic = read_stats(soup,team,"basic")
+  advanced = read_stats(soup,team,"advanced")
+  
+  totals= pd.concat([basic.iloc[-1,:], advanced.iloc[-1,:]])
+  totals.index = totals.index.str.lower()
+
+  maxes = pd.concat([basic.iloc[:-1,:].max(), advanced.iloc[:-1,:].max()])
+  maxes.index = maxes.index.str.lower() + "_max"
+
+  summary = pd.concat([totals,maxes])
+
+  if base_cols is None:
+    base_cols=list(summary.index.drop_duplicates(keep="first"))
+    base_cols = [b for b in base_cols if "bpm" not in b]
+
+  summary = summary[base_cols]
+  
+  summaries.append(summary)
+summary = pd.concat(summaries, axis=1)
