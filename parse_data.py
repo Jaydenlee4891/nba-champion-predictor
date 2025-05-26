@@ -59,3 +59,8 @@ for team in teams:
   
   summaries.append(summary)
 summary = pd.concat(summaries, axis=1)
+
+game = pd.concat([summary, line_score], axis=1)
+game["home"] = [0,1]
+game_opp = game.iloc[::-1].reset_index()
+game_opp.columns += "_opp"
