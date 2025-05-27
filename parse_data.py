@@ -80,3 +80,5 @@ for box_score in box_scores:
   games_df = pd.concat(games, ignore_index=True)
   if len(games) % 100 == 0:
     print(f"{len(games)} / {len(box_scores)}")
+
+games_df = pd.concat(games,ignore_index=True)
