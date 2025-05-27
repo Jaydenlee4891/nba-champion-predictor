@@ -73,3 +73,5 @@ game_opp.columns += "_opp"
 
 full_game = pd.concat([game, game_opp], axis=1)
 full_game["season"] = read_season_info(soup)
+full_game["date"] = os.path.basename(box_score)[:8]
+full_game["date"] = pd.to_datetime(full_game["date"], format="%Y%m%d")
