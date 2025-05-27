@@ -82,3 +82,4 @@ for box_score in box_scores:
     print(f"{len(games)} / {len(box_scores)}")
 
 games_df = pd.concat(games,ignore_index=True)
+games_df.to_csv("nba_games.csv")
