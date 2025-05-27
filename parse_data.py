@@ -70,3 +70,6 @@ game = pd.concat([summary, line_score], axis=1)
 game["home"] = [0,1]
 game_opp = game.iloc[::-1].reset_index()
 game_opp.columns += "_opp"
+
+full_game = pd.concat([game, game_opp], axis=1)
+full_game["season"] = read_season_info(soup)
