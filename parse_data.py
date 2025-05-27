@@ -30,6 +30,12 @@ def read_stats(soup, team, stat):
   df = df.apply(pd.to_numeric, errors="coerce")
   return df
 
+def read_season_info(soup):
+  nav = soup.select("#bottom_nav_container")[0]
+  hrefs = [a["href"] for a in nav.find_all("a")]
+  season = os.path.basename(hrefs[1]).split("_")[0]
+  return season
+
 base_cols = None
 box_score = box_scores[0]
 
