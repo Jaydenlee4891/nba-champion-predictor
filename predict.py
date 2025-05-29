@@ -9,4 +9,6 @@ del df["index_opp"]
 
 def add_target(team):
   team["target"] = team["won"].shift(-1)
-  return group
+  return team
+
+df = df.groupby("team", group_keys = False).apply(add_target)
