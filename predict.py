@@ -12,3 +12,6 @@ def add_target(team):
   return team
 
 df = df.groupby("team", group_keys = False).apply(add_target)
+
+df["target"][pd.isnull(df["target"])] = 2
+df["target"] = df["target"].astype(int,errors="ignore")
