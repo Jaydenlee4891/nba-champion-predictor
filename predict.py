@@ -31,3 +31,5 @@ removed_columns = ["season","date","won","target","team","team_opp"]
 selected_columns = df.columns[~df.columns.isin(removed_columns)]
 scaler = MinMaxScaler()
 df[selected_columns] = scaler.fit_transform(df[selected_columns])
+
+sfs.fit(df[selected_columns],df["target"])
