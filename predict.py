@@ -72,4 +72,22 @@ def find_team_averages(team):
 
 df_rolling = df_rolling.groupby(["team","season"],group_keys=False).apply(find_team_averages)
 
+rolling_cols = [f"{col}_10" for col in df_rolling.columns]
+df_rolling.columns = rolling_cols
+
+df = pd.concat([df,df_rolling], axis=1)
+
+df = df.dropna()
+
+def shift_col(team,col_name):
+  next_col = team[col_name].shift(-1)
+  return next_col
+
+def add_col(df,col_name):
+  return next_col = df.groupby("team",group_keys=False).apply(lambda x: shift_col(x,col_name))
+
+
+df["home_next"] = add_col(df,"home")
+df["team_opp_next"] = add_col(df,"team_opp")
+df["date_next"] = add_col(df,"date")
 
