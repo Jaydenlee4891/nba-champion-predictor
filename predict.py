@@ -62,3 +62,14 @@ predictions = backtest(df,rr,predictors)
 
 predictions = predictions[predictions["actual"] !=2]
 accuracy_score(predictions["actual"],predictions["prediction"])
+
+df.groupby("home").apply(lambda x: x[x["won"]==1].shape[0]/x.shape[0])
+df_rolling = df[list(selected_columns) + ["won","team","season"]]
+
+def find_team_averages(team):
+  rolling = team.rolling(10).mean()
+  return rolling
+
+df_rolling = df_rolling.groupby(["team","season"],group_keys=False).apply(find_team_averages)
+
+
