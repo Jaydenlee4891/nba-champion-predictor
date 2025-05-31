@@ -60,4 +60,5 @@ def backtest(data,model,predictors,start=2,step=1):
 sorted(df["season"].unique()
 predictions = backtest(df,rr,predictors)
 
+predictions = predictions[predictions["actual"] !=2]
 accuracy_score(predictions["actual"],predictions["prediction"])
