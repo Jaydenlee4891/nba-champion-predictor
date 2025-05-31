@@ -57,3 +57,4 @@ def backtest(data,model,predictors,start=2,step=1):
   return pd.concat(all_predictions)
 
 sorted(df["season"].unique()
+predictions = backtest(df,rr,predictors)
