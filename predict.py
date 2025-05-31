@@ -4,6 +4,7 @@ from sklearn.model_selection import TimeSeriesSplit
 from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.linear_model import RidgeClassifier
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import accuracy_score
 
 df = pd.read_csv("nba_games.csv", index_col=0)
 df = df.sort_values("date")
@@ -58,3 +59,5 @@ def backtest(data,model,predictors,start=2,step=1):
 
 sorted(df["season"].unique()
 predictions = backtest(df,rr,predictors)
+
+accuracy_score(predictions["actual"],predictions["prediction"])
