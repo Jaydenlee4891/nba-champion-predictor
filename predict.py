@@ -35,7 +35,6 @@ df[selected_columns] = scaler.fit_transform(df[selected_columns])
 
 sfs.fit(df[selected_columns],df["target"])
 
-predictors = list(selected_columns[sfs.get_support()])
 
 def backtest(data,model,predictors,start=2,step=1):
   all_predictions=[]
@@ -58,10 +57,6 @@ def backtest(data,model,predictors,start=2,step=1):
   return pd.concat(all_predictions)
 
 sorted(df["season"].unique()
-predictions = backtest(df,rr,predictors)
-
-predictions = predictions[predictions["actual"] !=2]
-accuracy_score(predictions["actual"],predictions["prediction"])
 
 df.groupby("home").apply(lambda x: x[x["won"]==1].shape[0]/x.shape[0])
 df_rolling = df[list(selected_columns) + ["won","team","season"]]
