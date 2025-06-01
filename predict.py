@@ -81,7 +81,6 @@ def shift_col(team,col_name):
 def add_col(df,col_name):
   return next_col = df.groupby("team",group_keys=False).apply(lambda x: shift_col(x,col_name))
 
-
 df["home_next"] = add_col(df,"home")
 df["team_opp_next"] = add_col(df,"team_opp")
 df["date_next"] = add_col(df,"date")
