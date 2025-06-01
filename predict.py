@@ -91,3 +91,12 @@ df["home_next"] = add_col(df,"home")
 df["team_opp_next"] = add_col(df,"team_opp")
 df["date_next"] = add_col(df,"date")
 
+df = df.copy()
+full = df.merge(
+    df[rolling_cols + ["team_opp_next","date_next","team"]],
+    left_on=["team","date_next"],
+    right_on=["team_opp_next","date_next"]
+)
+
+
+
