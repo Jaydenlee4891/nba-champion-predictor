@@ -102,3 +102,5 @@ selected_columns = full.columns[~full.columns.isin(removed_columns)]
 sfs.fit(full[selected_columns],full["target"])
 predictors = list(selected_columns[sfs.get_support()])
 
+predictions = backtest(full, rr, predictors)
+accuracy_score(predictions["actual"],predictions["prediction"])
