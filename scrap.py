@@ -60,9 +60,9 @@ async def scrape_game(standings_file):
   with open(standings_file, 'r') as f:
     html = f.read()
 
-  soup=BeautifulSoup(html)
+  soup = BeautifulSoup(html, "html.parser")
   links = soup.find_all("a")
-  hrefs = [l.get("href" for l in links)]
+  hrefs = [l.get("href") for l in links]
   box_scores = [l for l in hrefs if l and "boxscore" in l and ".html" in l]
   box_scores = [f"https://www.basketball-reference.com{l}" for l in box_scores]
 
