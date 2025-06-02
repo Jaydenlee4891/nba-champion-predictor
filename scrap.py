@@ -54,7 +54,7 @@ async def scrape_season(season):
 
 for season in SEASONS:
   await scrape_season(season)
-standing_files = os.listdir(STANDINGS_DIR)
+standings_files = os.listdir(STANDINGS_DIR)
 
 async def scrape_game(standings_file):
   with open(standings_file, 'r') as f:
