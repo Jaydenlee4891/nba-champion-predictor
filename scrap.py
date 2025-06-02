@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeout
 import time
 
-SEASONS = list(range(2014,2025))
+SEASONS = list(range(2014,2026))
 DATA_DIR="data"
 STANDINGS_DIR = os.path.join(DATA_DIR, "standings")
 SCORES_DIR = os.path.join(DATA_DIR, "scores")
@@ -62,7 +62,7 @@ async def scrape_game(standings_file):
 
   soup=BeautifulSoup(html)
   links = soup.find_all("a")
-  href = [l.get("href" for l in links)]
+  hrefs = [l.get("href" for l in links)]
   box_scores = [l for l in hrefs if l and "boxscore" in l and ".html" in l]
   box_scores = [f"https://www.basketball-reference.com{l}" for l in box_scores]
 
