@@ -56,7 +56,7 @@ def backtest(data,model,predictors,start=2,step=1):
     all_predictions.append(combined)
   return pd.concat(all_predictions)
 
-sorted(df["season"].unique()
+sorted(df["season"].unique())
 
 df.groupby("home").apply(lambda x: x[x["won"]==1].shape[0]/x.shape[0])
 df_rolling = df[list(selected_columns) + ["won","team","season"]]
