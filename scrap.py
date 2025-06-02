@@ -39,8 +39,10 @@ async def scrape_season(season):
   
   soup=BeautifulSoup(html)
   links = soup.find_all("a")
-  href = [l["href"] for l in links]
-  standings_pages = [f"https://www.basketball-reference.com{l}" for l in links]
+  standings_pages = [
+    f"https://www.basketball-reference.com{l['href']}" 
+    for l in links if l.get("href")
+]
 
   for url in standings_pages:
     save_path = os.path.join(STANDINGS_DIR, url.split("/")[-1])
