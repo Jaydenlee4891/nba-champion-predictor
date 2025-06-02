@@ -1,8 +1,8 @@
 # Install playwright
-!pip install playwright
+#!pip install playwright
 
 # Install browser binaries
-!playwright install
+#!playwright install
 
 import os
 from bs4 import BeautifulSoup
