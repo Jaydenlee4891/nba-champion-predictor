@@ -83,4 +83,4 @@ standings_files = [s for s in standings_files if ".html" in s]
 for f in standings_files:
   filepath = os.path.join(STANDINGS_DIR, f)
 
-  await scrape_game(filepath)
+  scrape_game(filepath)
