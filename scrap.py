@@ -58,7 +58,7 @@ standings_files = os.listdir(STANDINGS_DIR)
 
 async def scrape_game(standings_file):
   with open(standings_file, 'r') as f:
-    html = f.read()
+    html = await f.read()
 
   soup = BeautifulSoup(html, "html.parser")
   links = soup.find_all("a")
