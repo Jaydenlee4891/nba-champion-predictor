@@ -6,7 +6,7 @@ I will be using data from https://www.basketball-reference.com/ of the past 12 s
 
 First for the scraping of the data I will use the library BeautifulSoup4. In basketball reference if we go look at the boxscores you will realize the standings are saved in different months.
 
-I would have loved to finish scrapeing this during the weekends leading up to the final but it took me over 12 hours to be done scrapeing and create the csv file.
+I would have loved to finish scrapeing this during the weekends leading up to the final but it took me over 12 hours to be done scrapeing and create the csv file and I have personal plans that limitates my wifi usage so I will be just spending June 3rd week re fixing the code and starting the next project(AI stock prediction).
 
 
 
