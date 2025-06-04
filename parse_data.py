@@ -27,10 +27,10 @@ def read_line_score(soup):
     return line_score
 
 def read_stats(soup, team, stat):
-  df = pd.read_html(str(soup), attrs={"id":f"box-{team}-game-{stat}"}, index_col=0)[0]
-  df = df.apply(pd.to_numeric, errors="coerce")
-  return df
-
+    df = pd.read_html(str(soup), attrs = {'id': f'box-{team}-game-{stat}'}, index_col=0)[0]
+    df = df.apply(pd.to_numeric, errors="coerce")
+    return df
+    
 def read_season_info(soup):
     nav = soup.select("#bottom_nav_container")[0]
     hrefs = [a["href"] for a in nav.find_all('a')]
