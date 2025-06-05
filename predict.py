@@ -42,25 +42,25 @@ df[selected_columns] = scaler.fit_transform(df[selected_columns])
 
 sfs.fit(df[selected_columns], df["target"])
 
-def backtest(data,model,predictors,start=2,step=1):
-  all_predictions=[]
-  seasons = sorted(data["season"].unique())
-
-  for i in range(start , len(seasons),step):
-    seasons = seasons[i]
-
-    train = data[data["season"]<season]
-    test = data[data["season"] == season]
-
-    model.fit(train[predictors],train["target"])
-
-    preds = model.predict(test[predictors])
-    preds = pd.Series(preds, index=test.index)
-    combined = pd.concat([test["target"],preds],axis=1)
-    combined.columns = ["actual","prediction"]
-
-    all_predictions.append(combined)
-  return pd.concat(all_predictions)
+def backtest(data, model, predictors, start=2, step=1):
+    all_predictions = []
+    
+    seasons = sorted(data["season"].unique())
+    
+    for i in range(start, len(seasons), step):
+        season = seasons[i]
+        train = data[data["season"] < season]
+        test = data[data["season"] == season]
+        
+        model.fit(train[predictors], train["target"])
+        
+        preds = model.predict(test[predictors])
+        preds = pd.Series(preds, index=test.index)
+        combined = pd.concat([test["target"], preds], axis=1)
+        combined.columns = ["actual", "prediction"]
+        
+        all_predictions.append(combined)
+    return pd.concat(all_predictions)
 
 sorted(df["season"].unique())
 
