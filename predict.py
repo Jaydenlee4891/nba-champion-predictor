@@ -40,8 +40,7 @@ selected_columns = df.columns[~df.columns.isin(removed_columns)]
 scaler = MinMaxScaler()
 df[selected_columns] = scaler.fit_transform(df[selected_columns])
 
-sfs.fit(df[selected_columns],df["target"])
-
+sfs.fit(df[selected_columns], df["target"])
 
 def backtest(data,model,predictors,start=2,step=1):
   all_predictions=[]
