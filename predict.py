@@ -26,8 +26,15 @@ valid_columns = df.columns[~df.columns.isin(nulls.index)]
 df = df[valid_columns].copy()
 
 rr = RidgeClassifier(alpha=1)
+
 split = TimeSeriesSplit(n_splits=3)
-sfs = SequentialFeatureSelector(rr, n_features_to_select=30, direction="forward", cv=split)
+
+sfs = SequentialFeatureSelector(rr, 
+                                n_features_to_select=30, 
+                                direction="forward",
+                                cv=split,
+                                n_jobs=1
+                               )
 removed_columns = ["season","date","won","target","team","team_opp"]
 selected_columns = df.columns[~df.columns.isin(removed_columns)]
 scaler = MinMaxScaler()
