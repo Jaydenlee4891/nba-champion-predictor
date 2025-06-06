@@ -2,6 +2,7 @@
 #!pip install playwright
 
 # Install browser binaries
+
 #!playwright install
 
 import os
