@@ -22,6 +22,8 @@ df = df.groupby("team", group_keys = False).apply(add_target)
 df["target"][pd.isnull(df["target"])] = 2
 df["target"] = df["target"].astype(int, errors="ignore")
 
+nulls = pd.isnull(df).sum()
+nulls = nulls[nulls > 0]
 valid_columns = df.columns[~df.columns.isin(nulls.index)]
 df = df[valid_columns].copy()
 
