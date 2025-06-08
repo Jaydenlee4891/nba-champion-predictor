@@ -3,3 +3,4 @@ from sklearn.model_selection import TimeSeriesSplit
 from sklearn.linear_model import RidgeClassifier
 from sklearn.feature_selection import SequentialFeatureSelector
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.metrics import accuracy_score
