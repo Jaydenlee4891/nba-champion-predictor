@@ -50,3 +50,14 @@ df["target"] = df["target"].astype(int, errors="ignore")
 
 valid_columns = df.columns[~df.columns.isin(nulls.index)]
 df = df[valid_columns].copy()
+
+rr = RidgeClassifier(alpha=1)
+
+split = TimeSeriesSplit(n_splits=3)
+
+sfs = SequentialFeatureSelector(rr, 
+                                n_features_to_select=30, 
+                                direction="forward",
+                                cv=split,
+                                n_jobs=1
+                               )
