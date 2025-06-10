@@ -43,3 +43,10 @@ del df["mp.1"]
 del df["mp_opp.1"]
 del df["index_opp"]
 
+df = df.groupby("team", group_keys = False).apply(add_target)
+
+df["target"][pd.isnull(df["target"])] = 2
+df["target"] = df["target"].astype(int, errors="ignore")
+
+valid_columns = df.columns[~df.columns.isin(nulls.index)]
+df = df[valid_columns].copy()
