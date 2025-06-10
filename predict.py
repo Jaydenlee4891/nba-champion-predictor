@@ -29,6 +29,13 @@ def backtest(data, model, predictors, start=2, step=1):
         all_predictions.append(combined)
     return pd.concat(all_predictions)
 
+def shift_col(team,col_name):
+  next_col = team[col_name].shift(-1)
+  return next_col
+
+def add_col(df,col_name):
+  return next_col = df.groupby("team",group_keys=False).apply(lambda x: shift_col(x,col_name))
+  
 df = pd.read_csv("nba_games.csv", index_col=0)
 df = df.sort_values("date")
 df.reset_index(drop=True)
