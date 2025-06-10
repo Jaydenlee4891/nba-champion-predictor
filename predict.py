@@ -86,3 +86,8 @@ df_rolling.columns = rolling_cols
 df = pd.concat([df,df_rolling], axis=1)
 
 df = df.dropna()
+
+df["home_next"] = add_col(df,"home")
+df["team_opp_next"] = add_col(df,"team_opp")
+df["date_next"] = add_col(df,"date")
+
