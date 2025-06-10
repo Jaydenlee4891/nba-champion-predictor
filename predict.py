@@ -74,3 +74,11 @@ sorted(df["season"].unique())
 df.groupby("home").apply(lambda x: x[x["won"]==1].shape[0]/x.shape[0])
 df_rolling = df[list(selected_columns) + ["won","team","season"]]
 
+df_rolling = df_rolling.groupby(["team","season"],group_keys=False).apply(find_team_averages)
+
+rolling_cols = [f"{col}_10" for col in df_rolling.columns]
+df_rolling.columns = rolling_cols
+
+df = pd.concat([df,df_rolling], axis=1)
+
+df = df.dropna()
