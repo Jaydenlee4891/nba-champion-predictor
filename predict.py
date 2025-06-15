@@ -93,4 +93,9 @@ df = df.dropna()
 df["home_next"] = add_col(df,"home")
 df["team_opp_next"] = add_col(df,"team_opp")
 df["date_next"] = add_col(df,"date")
-
+df.loc[30944, 'home_next'] = 1.0
+df.loc[30944, 'team_opp_next'] = 'IND'
+df.loc[30945, 'home_next'] = 0.0
+df.loc[30945, 'team_opp_next'] = 'OKC'
+df.loc[30944, 'date_next'] = 2025-0o6-16
+df.loc[30945, 'date_next'] = 2025-0o6-16
