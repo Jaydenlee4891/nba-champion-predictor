@@ -30,8 +30,11 @@ def backtest(data, model, predictors, start=2, step=1):
     return pd.concat(all_predictions)
   
 def find_team_averages(team):
-  rolling = team.rolling(10).mean()
-  return rolling
+    numeric_cols = team.select_dtypes(include='number')
+    rolling = numeric_cols.rolling(10, min_periods=1).mean()  # min_periods=1 is optional
+    # Optionally keep non-numeric identifiers (aligned by index)
+    rolling[["team", "season"]] = team[["team", "season"]]
+    return rolling
 
 def shift_col(team,col_name):
   next_col = team[col_name].shift(-1)
