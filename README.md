@@ -16,3 +16,5 @@ I would have loved to finish scrapeing this during the weekends leading up to th
 At the end of your parsing process you may encounter a problem where you get an error after the code games_df = pd.concat(games,ignore_index=True) is executed. This problem occurs because although you should have 150 columns there are multiple columns where you have diffrent amount of columns. In order to check this use this code [g.shape[1] for g in games if g.shape[1]!=150] to check and if it returns false delete the columns
 
 The data I will be using to predict the finals is updated enough so it includes game 4 of the NBA finals after the finals is over I will be adding the rest of the box scores.
+
+You can ignore most of the warnings as they do not affect the proccess.
