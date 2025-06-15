@@ -3,8 +3,9 @@ Hello so the goal of this project is to train a machine learning algorithm using
 The current time of me writting this is before the first game of the Conference finals have begun.
 I will be using data from https://www.basketball-reference.com/ of the past 12 seasons to train the machine.
 
+First for the scraping of the data I will use the library BeautifulSoup4. In basketball reference if we go look at the boxscores you will realize the standings are saved in different months. And then from the scraped html I scrape the individual games and save the html of the box score.
 
-First for the scraping of the data I will use the library BeautifulSoup4. In basketball reference if we go look at the boxscores you will realize the standings are saved in different months.
+For parsing the data we save the basic and advanced stats differently. We also made a copy of the original csv so there is two data points for the same game(One based on the home team and one based on the opponent). Then use the pandas function pd.concat then convert it to a csv file. 
 
 I would have loved to finish scrapeing this during the weekends leading up to the final but it took me over 12 hours to be done scrapeing and create the csv file and I have personal plans that limitates my wifi usage so I will be just spending June 3rd week re fixing the code and starting the next project(AI stock prediction).
 
