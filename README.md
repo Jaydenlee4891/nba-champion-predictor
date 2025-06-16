@@ -1,3 +1,4 @@
+
 # nba-champion-predictor
 Hello so the goal of this project is to train a machine learning algorithm using tensor flow to predict this seasons NBA champion.
 The current time of me writting this is before the first game of the Conference finals have begun.
@@ -17,8 +18,10 @@ At the end of your parsing process you may encounter a problem where you get an 
 
 The data I will be using to predict the finals is updated enough so it includes game 4 of the NBA finals after the finals is over I will be adding the rest of the box scores.
 
-You can ignore most of the warnings as they do not affect the proccess.
+You can ignore most of the warnings as they do not affect the proccess. BUT do keep in mind most of this code won't work when pandas 3.0 is released.
 
 Now it would be amazing if I am able to run the prediction in a for loop and see what percentage of the games the machine has the teams winning, however, the current situation I am in is not ideal to run this type of experiment so unlucky. 
+<img width="1440" alt="Screenshot 2025-06-16 at 21 12 14" src="https://github.com/user-attachments/assets/16d142d5-9947-4a85-9337-ae0210779a9c" />
+So this means that the machine predicted the pacers to win game 5. I will comeback after game 5 to see if it was correct. 
 
 I think I am done with this project for now maybe I will do it again next season and try to predict the entire playoffs this time.
