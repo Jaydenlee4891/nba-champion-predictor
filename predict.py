@@ -78,6 +78,9 @@ sfs.fit(df[selected_columns], df["target"])
 
 sorted(df["season"].unique())
 
+predictors = list(selected_columns[sfs.get_support()])
+predictions = backtest(df, rr, predictors)
+
 df.groupby("home").apply(lambda x: x[x["won"]==1].shape[0]/x.shape[0])
 df_rolling = df[list(selected_columns) + ["won","team","season"]]
 
