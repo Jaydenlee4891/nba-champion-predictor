@@ -22,6 +22,6 @@ You can ignore most of the warnings as they do not affect the proccess. BUT do k
 
 Now it would be amazing if I am able to run the prediction in a for loop and see what percentage of the games the machine has the teams winning, however, the current situation I am in is not ideal to run this type of experiment so unlucky. 
 <img width="1440" alt="Screenshot 2025-06-16 at 21 12 14" src="https://github.com/user-attachments/assets/16d142d5-9947-4a85-9337-ae0210779a9c" />
-So this means that the machine predicted the pacers to win game 5. I will comeback after game 5 to see if it was correct. 
+So this means that the machine predicted the pacers to win game 5. I will comeback after game 5 to see if it was correct. You can ignore the actual as the game didn't happen yet and we are only interested in what the algorithm predicted.
 
 I think I am done with this project for now maybe I will do it again next season and try to predict the entire playoffs this time.
