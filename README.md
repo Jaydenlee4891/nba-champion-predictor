@@ -18,3 +18,7 @@ At the end of your parsing process you may encounter a problem where you get an 
 The data I will be using to predict the finals is updated enough so it includes game 4 of the NBA finals after the finals is over I will be adding the rest of the box scores.
 
 You can ignore most of the warnings as they do not affect the proccess.
+
+Now it would be amazing if I am able to run the prediction in a for loop and see what percentage of the games the machine has the teams winning, however, the current situation I am in is not ideal to run this type of experiment so unlucky. 
+
+I think I am done with this project for now maybe I will do it again next season and try to predict the entire playoffs this time.
