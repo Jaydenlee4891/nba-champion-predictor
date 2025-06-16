@@ -110,5 +110,4 @@ removed_columns = list(full.columns[full.dtypes == "object"]) + removed_columns
 
 selected_columns = full.columns[~full.columns.isin(removed_columns)]
 sfs.fit(full[selected_columns], full["target"])
-predictions = backtest(full, rr, predictors)
 
