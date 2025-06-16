@@ -99,3 +99,7 @@ df.loc[30945, 'home_next'] = 0.0
 df.loc[30945, 'team_opp_next'] = 'OKC'
 df.loc[30944, 'date_next'] = 2025-0o6-16
 df.loc[30945, 'date_next'] = 2025-0o6-16
+
+full = df.merge(df[rolling_cols + ["team_opp_next", "date_next", "team"]], left_on=["team", "date_next"], right_on=["team_opp_next", "date_next"])
+full[["team_x", "team_opp_next_x", "team_y", "team_opp_next_y", "date_next"]]
+removed_columns = list(full.columns[full.dtypes == "object"]) + removed_columns
