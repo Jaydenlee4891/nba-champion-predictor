@@ -24,4 +24,6 @@ Now it would be amazing if I am able to run the prediction in a for loop and see
 <img width="1440" alt="Screenshot 2025-06-16 at 21 12 14" src="https://github.com/user-attachments/assets/16d142d5-9947-4a85-9337-ae0210779a9c" />
 So this means that the machine predicted the pacers to win game 5. I will comeback after game 5 to see if it was correct. You can ignore the actual as the game didn't happen yet and we are only interested in what the algorithm predicted.
 
+So OKC did win game 5 so the prediction was wrong. The model isn't perfect as today Haliburton the pacer's star Point guard got a hamstring injury and the no amount of data can ever predict that. Some events are just unpredictable
+
 I think I am done with this project for now maybe I will do it again next season and try to predict the entire playoffs this time.
