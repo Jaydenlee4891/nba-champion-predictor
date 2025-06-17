@@ -26,4 +26,6 @@ So this means that the machine predicted the pacers to win game 5. I will comeba
 
 So OKC did win game 5 so the prediction was wrong. The model isn't perfect as today Haliburton the pacer's star Point guard got a hamstring injury and the no amount of data can ever predict that. Some events are just unpredictable
 
+Maybe next time we can try predicting when players will be injured.
+
 I think I am done with this project for now maybe I will do it again next season and try to predict the entire playoffs this time.
