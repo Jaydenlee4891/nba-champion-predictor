@@ -31,4 +31,3 @@ Maybe next time we can try predicting when players will be injured.
 I think I am done with this project for now maybe I will do it again next season and try to predict the entire season this time. Maybe I will try to remake this project but use pytorch instead of tensorflow
 
 
-
